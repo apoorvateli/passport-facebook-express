@@ -1,8 +1,6 @@
 <p>
 ID: <%= user.id %><br/>
 Name: <%= user.displayName %><br/>
-Hometown: <%= user._json.hometown.name %><br/>
-Location: <%= user._json.location.name %><br/>
 Birthday: <%= user._json.birthday %><br/>
 Age Range: <%= user._json.age_range.min %> to <%= user._json.age_range.max %><br/>
 Gender: <%= user.gender %><br/>
@@ -16,6 +14,13 @@ No. of FB friends: <%= user._json.friends.summary.total_count %><br/>
   <% } ); %>
 <% } %>
 <br/>
+<% if (user._json.hometown) { %>
+  Hometown: <%= user._json.hometown.name %><br/>
+<% } %>
+<% if (user._json.location) { %>
+  Location: <%= user._json.location.name %><br/>
+<% } %>
+
 <!-- <% if (user.emails) { %>
   Email: <%= user.emails[0].value %><br/>
 <% } %> -->

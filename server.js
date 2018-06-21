@@ -2,7 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var passport = require('passport');
 var Strategy = require('passport-facebook').Strategy;
-
+var PORT = process.env.PORT || 3000;
 
 // Configure the Facebook strategy for use by Passport.
 //
@@ -110,4 +110,6 @@ app.get('/profile',
     res.redirect('/');
   });
 
-app.listen(3000);
+  app.listen(PORT, function() {
+    console.log("Listening to passport-facebook-express on port " + PORT);
+  });
