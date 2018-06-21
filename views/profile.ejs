@@ -1,0 +1,51 @@
+<p>
+ID: <%= user.id %><br/>
+Name: <%= user.displayName %><br/>
+Hometown: <%= user._json.hometown.name %><br/>
+Location: <%= user._json.location.name %><br/>
+Birthday: <%= user._json.birthday %><br/>
+Age Range: <%= user._json.age_range.min %> to <%= user._json.age_range.max %><br/>
+Gender: <%= user.gender %><br/>
+Profile Link: <%= user._json.link %><br/>
+No. of FB friends: <%= user._json.friends.summary.total_count %><br/>
+
+<% if (user.emails) { %>
+  Emails:
+  <% user.emails.forEach( function(value, index) { %>
+    <%= value.value %>, 
+  <% } ); %>
+<% } %>
+<br/>
+<!-- <% if (user.emails) { %>
+  Email: <%= user.emails[0].value %><br/>
+<% } %> -->
+
+<% if (user._json.languages) { %>
+  Languages:
+  <% user._json.languages.forEach( function(value, index) { %>
+    <%= value.name %>, 
+  <% } ); %>
+<% } %>
+<br/>
+
+<!-- <% if (user._json.languages) { %>
+Languages: <%= user._json.languages[0].name %><br/>
+<% } %> -->
+
+<!-- <% if (user._json.likes) { %>
+Likes: <%= user._json.likes[0] %><br/>
+<% } %>
+<% if (user._json.friends) { %>
+Friends: <%= user._json.friends[0] %><br/>
+<% } %>
+<% if (user._json.posts) { %>
+Friends: <%= user._json.posts[0] %><br/>
+<% } %> -->
+
+<% if (user.photos) { %>
+Photos: <%= user.photos[0].value %> <br/>
+<img src="<%= user.photos[0].value %>" alt="Profie Picture">
+<% } %>
+</p>
+
+<a href="/logout">Log Out</a>
